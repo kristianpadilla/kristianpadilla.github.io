@@ -322,14 +322,14 @@
 
   /* STATUS BAR */
   .status-bar {
-    display:flex;gap:2rem;padding:0.6rem 1.5rem;background:#050505;
+    display:flex;gap:1.5rem;padding:0.6rem 1.5rem;background:#050505;
     border:1px solid var(--dark-border);border-radius:3px;margin-bottom:1rem;
     font-family:'Share Tech Mono',monospace;font-size:11px;
-    overflow:hidden;position:relative;
+    overflow:hidden;position:relative;flex-wrap:wrap;
   }
   .status-bar::before { content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,var(--yellow-dim),transparent); }
-  .status-item { display:flex;align-items:center;gap:6px;color:var(--text-muted); }
-  .status-dot { width:5px;height:5px;border-radius:50%;background:var(--mint);animation:blink 2s ease-in-out infinite; }
+  .status-item { display:flex;align-items:center;gap:6px;color:var(--text-muted);white-space:nowrap; }
+  .status-dot { width:5px;height:5px;border-radius:50%;background:var(--mint);animation:blink 2s ease-in-out infinite;flex-shrink:0; }
   .status-val { color:var(--mint); }
 
   /* SECTIONS */
@@ -604,6 +604,13 @@
 
     /* Footer */
     footer { flex-direction:column;gap:4px;text-align:center;padding:1rem 1.25rem; }
+
+    /* Status bar — stack vertically on mobile */
+    .status-bar { flex-direction:column;gap:0.5rem;padding:0.75rem 1rem; }
+    .status-item { white-space:normal; }
+
+    /* Sports icons — hide on mobile to prevent overlap */
+    .sports-grid svg[style*="position:absolute"] { display:none !important; }
 
     /* Human page */
     .human-two-col { grid-template-columns:1fr !important; }
@@ -2122,12 +2129,12 @@
       <div class="reveal reveal-delay-3" style="display:flex;gap:1.5rem;align-items:flex-start;margin-bottom:2.5rem;">
         <div style="width:48px;height:48px;background:#111;border:1px solid var(--dark-border);border-radius:3px;display:flex;align-items:center;justify-content:center;font-family:'Share Tech Mono',monospace;font-size:11px;font-weight:700;color:#888880;flex-shrink:0;position:relative;z-index:1;clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,0 100%);">CS+</div>
         <div style="flex:1;background:var(--dark-card);border:1px solid var(--dark-border);border-radius:3px;padding:1.25rem 1.5rem;position:relative;overflow:hidden;clip-path:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,0 100%);">
-          <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.75rem;">
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:nowrap;gap:0.5rem;margin-bottom:0.75rem;">
             <div>
               <div style="font-family:'Rajdhani',sans-serif;font-size:1.15rem;font-weight:700;color:var(--text-primary);text-transform:uppercase;letter-spacing:0.5px;">CySA+</div>
               <div style="font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--text-muted);margin-top:2px;">CompTIA Cybersecurity Analyst+</div>
             </div>
-            <span style="padding:2px 10px;background:rgba(255,255,255,0.03);border:1px solid var(--dark-border);border-radius:2px;font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--text-muted);letter-spacing:2px;text-transform:uppercase;">Planned</span>
+            <span style="padding:2px 10px;background:rgba(255,255,255,0.03);border:1px solid var(--dark-border);border-radius:2px;font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--text-muted);letter-spacing:2px;text-transform:uppercase;flex-shrink:0;">Planned</span>
           </div>
           <p style="font-size:13px;color:var(--text-secondary);line-height:1.7;margin-bottom:0.75rem;">Security analytics, threat intelligence, and incident response. Moves from awareness into active threat detection and analysis.</p>
           <div style="display:flex;flex-wrap:wrap;gap:6px;">
