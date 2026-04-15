@@ -124,6 +124,7 @@
   }
   .nav-links { overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none; }
   .nav-links::-webkit-scrollbar { display:none; }
+  #msg-thread::-webkit-scrollbar { display:none; }
   nav.scrolled { border-bottom-color: rgba(111,236,184,0.25); }
   nav::before {
     content:''; position:absolute; bottom:-1px; left:0;
@@ -2991,7 +2992,7 @@
               </div>
 
               <!-- Messages -->
-              <div id="msg-thread" style="flex:1;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:10px;background:#080606;">
+              <div id="msg-thread" style="flex:1;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:10px;background:#080606;scrollbar-width:none;-ms-overflow-style:none;">
 
                 <!-- Rogue thread -->
                 <div id="thread-rogue" class="msg-thread-content">
@@ -3202,6 +3203,13 @@ function showPage(id,el){
   if(id === 'experience'){
     setTimeout(function(){
       if(typeof initMap === 'function') initMap();
+      // Extra invalidateSize call after render settles
+      setTimeout(function(){
+        var mapEl = document.getElementById('operator-map');
+        if(mapEl && mapEl._leaflet_map){
+          mapEl._leaflet_map.invalidateSize(true);
+        }
+      }, 500);
     }, 250);
   }
 }
@@ -3209,11 +3217,20 @@ function showPage(id,el){
 // ── HOME LAB MODAL ──
 function openLabModal(){
   var modal = document.getElementById('lab-modal');
-  if(modal){ modal.style.display='flex'; document.body.style.overflow='hidden'; }
+  if(modal){ modal.style.display='flex'; }
 }
 function closeLabModal(){
   var modal = document.getElementById('lab-modal');
-  if(modal){ modal.style.display='none'; document.body.style.overflow=''; }
+  if(modal){ modal.style.display='none'; }
+  document.body.style.overflow='';
+  document.documentElement.style.overflow='';
+  // Re-trigger map size if on experience page
+  setTimeout(function(){
+    var mapEl = document.getElementById('operator-map');
+    if(mapEl && mapEl._leaflet_map){
+      mapEl._leaflet_map.invalidateSize(true);
+    }
+  }, 100);
 }
 document.addEventListener('keydown', function(e){
   if(e.key === 'Escape') closeLabModal();
