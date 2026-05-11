@@ -1,0 +1,220 @@
+/* Reusable UI components and special visual effects. */
+/* TERMINAL */
+  .terminal {
+    background:#050505;border:1px solid var(--dark-border);border-radius:3px;
+    padding:1.25rem 1.5rem;font-family:'Share Tech Mono',monospace;font-size:13px;
+    margin-bottom:2rem;position:relative;overflow:hidden;
+  }
+  .terminal::before { content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,var(--mint-dim),transparent); }
+  .terminal::after { content:'';position:absolute;top:0;left:0;bottom:0;width:1px;background:linear-gradient(to bottom,var(--mint-dim),transparent); }
+  .terminal-bar { display:flex;gap:6px;margin-bottom:1rem;align-items:center; }
+  .terminal-dot { width:10px;height:10px;border-radius:50%; }
+  .terminal-dot.red{ background:#ff5f56; } .terminal-dot.yellow{ background:#ffbd2e; } .terminal-dot.green{ background:#27c93f; }
+  .terminal-title { font-size:11px;color:var(--text-muted);margin-left:8px;letter-spacing:1px; }
+  .t-prompt{ color:var(--mint); } .t-cmd{ color:#eeeee4; } .t-out{ color:var(--text-secondary); } .t-hi{ color:var(--mint); } .t-yellow{ color:var(--yellow); }
+  .terminal-line { margin:5px 0; }
+
+  /* STATUS BAR */
+  .status-bar {
+    display:flex;gap:1.5rem;padding:0.6rem 1.5rem;background:#050505;
+    border:1px solid var(--dark-border);border-radius:3px;margin-bottom:1rem;
+    font-family:'Share Tech Mono',monospace;font-size:11px;
+    overflow:hidden;position:relative;flex-wrap:wrap;
+  }
+  .status-bar::before { content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,var(--yellow-dim),transparent); }
+  .status-item { display:flex;align-items:center;gap:6px;color:var(--text-muted);white-space:nowrap; }
+  .status-dot { width:5px;height:5px;border-radius:50%;background:var(--mint);animation:blink 2s ease-in-out infinite;flex-shrink:0; }
+  .status-val { color:var(--mint); }
+
+  /* CYBER SKILL CARDS */
+  .cyber-skill-card {
+    background:var(--dark-card);border:1px solid var(--dark-border);border-radius:3px;
+    padding:1.5rem;position:relative;overflow:hidden;
+    clip-path:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,0 100%);
+    transition:border-color 0.3s,transform 0.3s,box-shadow 0.3s;
+  }
+  .cyber-skill-card::before {
+    content:'';position:absolute;top:0;left:0;right:0;height:1px;
+    background:linear-gradient(to right,var(--mint-dim),transparent);
+  }
+  .cyber-skill-card::after {
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(135deg,rgba(111,236,184,0.03) 0%,transparent 60%);
+    pointer-events:none;
+  }
+  .cyber-skill-card:hover {
+    border-color:var(--mint-dim);transform:translateY(-4px);
+    box-shadow:0 12px 30px rgba(111,236,184,0.08);
+  }
+  .csc-header { display:flex;align-items:center;gap:12px;margin-bottom:0; }
+  .csc-icon {
+    font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--mint);
+    background:var(--mint-glow);border:1px solid rgba(111,236,184,0.2);
+    padding:4px 8px;border-radius:2px;flex-shrink:0;letter-spacing:1px;
+  }
+  .csc-title {
+    font-family:'Rajdhani',sans-serif;font-size:1rem;font-weight:700;
+    color:var(--text-primary);text-transform:uppercase;letter-spacing:0.5px;line-height:1.2;
+  }
+  .csc-sub { font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--text-muted);letter-spacing:1px;margin-top:2px; }
+  .csc-level { display:flex;gap:4px;margin-left:auto;align-items:center;flex-shrink:0; }
+  .csc-pip { width:14px;height:3px;background:var(--dark-border);border-radius:1px;transition:background 0.3s; }
+  .csc-pip.active { background:var(--mint); }
+  .csc-divider {
+    height:1px;margin:1rem 0;
+    background:linear-gradient(to right,var(--mint-dim),rgba(111,236,184,0.05),transparent);
+  }
+  .csc-tags { display:flex;flex-wrap:wrap;gap:7px; }
+  .csc-tag {
+    padding:4px 11px;background:rgba(111,236,184,0.04);
+    border:1px solid rgba(111,236,184,0.14);border-radius:2px;
+    font-size:12px;color:#c8c8c0;
+    font-family:'Share Tech Mono',monospace;
+    transition:all 0.2s;cursor:default;
+  }
+  .csc-tag:hover {
+    background:var(--mint-glow);color:var(--mint);
+    border-color:var(--mint-dim);transform:scale(1.05);
+  }
+
+  /* CYBER CERT CARDS */
+  .cyber-cert-card {
+    background:var(--dark-card);border:1px solid var(--dark-border);border-radius:3px;
+    padding:1.5rem;position:relative;overflow:hidden;
+    clip-path:polygon(0 0,calc(100% - 16px) 0,100% 16px,100% 100%,0 100%);
+    transition:border-color 0.3s,transform 0.3s,box-shadow 0.3s;
+  }
+  .cyber-cert-card:hover { border-color:var(--mint-dim);transform:translateY(-3px);box-shadow:0 10px 24px rgba(111,236,184,0.08); }
+
+  /* ── TABLET ── */
+  
+  
+  
+
+  .registry-grid { display:grid;grid-template-columns:220px 1fr; }
+  /* ── MOBILE ── */
+  
+
+  
+
+  
+  
+  #threat-scan { animation: threat-scan-move 3s linear infinite; }
+
+
+  #splash {
+    position:fixed;inset:0;background:#080808;z-index:99999;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    pointer-events:all;
+  }
+  #splash-canvas { position:absolute;inset:0;width:100%;height:100%; }
+  #splash-content {
+    position:relative;z-index:2;text-align:center;
+    display:flex;flex-direction:column;align-items:center;gap:1rem;
+  }
+  #splash-name {
+    font-family:'Orbitron',sans-serif;font-size:clamp(2rem,6vw,5rem);
+    font-weight:700;text-transform:uppercase;letter-spacing:2px;
+    color:var(--mint);opacity:0;transition:opacity 0.6s ease;
+    text-shadow:0 0 40px rgba(111,236,184,0.4);
+    position:relative;display:inline-block;
+  }
+  /* splash-name glitch — JS driven, matches 09 logo */
+  #splash-name { overflow:visible; }
+  #splash-name .name-base { display:inline-block;position:relative;transition:transform 0.05s,filter 0.05s; }
+  #splash-name .name-ghost { position:absolute;top:0;left:0;white-space:nowrap;font-family:inherit;font-size:inherit;font-weight:inherit;letter-spacing:inherit;text-transform:inherit;pointer-events:none;opacity:0;transition:transform 0.05s; }
+  #splash-name .name-ghost-r { color:#ff2d6b; }
+  #splash-name .name-ghost-w { color:#ffffff; }
+  #splash-title {
+    font-family:'Orbitron',sans-serif;font-size:clamp(0.55rem,1.4vw,0.75rem);
+    color:var(--text-muted);letter-spacing:4px;text-transform:uppercase;
+    opacity:0;transition:opacity 0.6s ease 0.3s;
+  }
+  #splash-bar-wrap {
+    width:200px;height:2px;background:var(--dark-border);border-radius:1px;
+    overflow:hidden;opacity:0;transition:opacity 0.3s ease 0.5s;
+  }
+  #splash-bar {
+    height:100%;width:0%;background:linear-gradient(to right,var(--mint),var(--mint-dim));
+    border-radius:1px;transition:width 1.2s ease;
+  }
+  #splash-pct {
+    font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--mint);
+    letter-spacing:2px;opacity:0;transition:opacity 0.3s ease 0.5s;
+  }
+  #splash-enter button:hover { background:var(--mint-glow);box-shadow:0 0 20px rgba(111,236,184,0.25); }
+  #splash.fade-out {
+    opacity:0;transition:opacity 0.8s ease;pointer-events:none;
+  }
+
+  /* ── HOLOGRAPHIC UI HOVER EFFECT ── */
+  
+  
+  
+
+  .holo-card {
+    position:relative;
+    overflow:hidden;
+    transition:transform 0.2s ease, box-shadow 0.3s ease;
+  }
+  .holo-card::after {
+    content:'';
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+      135deg,
+      transparent 0%,
+      rgba(111,236,184,0.03) 25%,
+      rgba(91,196,245,0.05) 50%,
+      rgba(245,230,66,0.03) 75%,
+      transparent 100%
+    );
+    background-size:200% 200%;
+    opacity:0;
+    transition:opacity 0.3s ease;
+    pointer-events:none;
+    z-index:1;
+  }
+  .holo-card:hover::after {
+    opacity:1;
+    animation:holo-shift 3s ease infinite;
+  }
+  .holo-card:hover svg[style*="opacity:0.35"] { opacity:0.7 !important; }
+  .holo-card:hover {
+    box-shadow:
+      0 0 20px rgba(111,236,184,0.08),
+      0 0 40px rgba(91,196,245,0.05),
+      inset 0 0 20px rgba(111,236,184,0.03);
+    animation:holo-flicker 4s ease infinite;
+  }
+  /* Holo scan line that sweeps on hover */
+  .holo-card .holo-sweep {
+    position:absolute;
+    left:0;right:0;
+    height:2px;
+    background:linear-gradient(to right,transparent,rgba(111,236,184,0.4),rgba(91,196,245,0.3),transparent);
+    opacity:0;
+    pointer-events:none;
+    z-index:2;
+    transition:none;
+  }
+  .holo-card:hover .holo-sweep {
+    animation:holo-scan 1.5s ease infinite;
+  }
+  /* Holo corner accent on hover */
+  .holo-card::before {
+    content:'';
+    position:absolute;
+    top:0;left:0;right:0;
+    height:1px;
+    background:linear-gradient(to right,transparent,rgba(111,236,184,0.5),rgba(91,196,245,0.4),rgba(245,230,66,0.3),transparent);
+    background-size:200% 100%;
+    opacity:0;
+    transition:opacity 0.3s ease;
+    pointer-events:none;
+    z-index:2;
+  }
+  .holo-card:hover::before {
+    opacity:1;
+    animation:holo-shift 2s ease infinite;
+  }

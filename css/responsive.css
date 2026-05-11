@@ -1,0 +1,161 @@
+/* Responsive rules extracted from the original portfolio. */
+@media (max-width:1024px) {
+    .hero { grid-template-columns:1fr;grid-template-rows:auto auto auto; }
+    .hero-main { grid-column:1;grid-row:1; }
+    .hero-threat { grid-column:1;grid-row:2;justify-content:flex-start;margin-top:1.5rem; }
+    .hero-stats { grid-column:1;grid-row:3;flex-direction:row;min-width:unset;border-left:none;padding-left:0;border-top:1px solid var(--dark-border);padding-top:2rem;margin-top:2rem; }
+    .hud-item { flex:1; }
+    .hud-divider { width:1px;height:auto;background:linear-gradient(to bottom,transparent,var(--dark-border),transparent); }
+  }
+
+@media (max-width:900px) {
+    .home-two-col { grid-template-columns:1fr !important; }
+    .capabilities-grid { grid-template-columns:repeat(2,1fr) !important; }
+  }
+
+@media (max-width:600px) {
+    .capabilities-grid { grid-template-columns:1fr !important; }
+  }
+
+@media (max-width:768px) {
+    /* Nav */
+    nav { padding:0 1.25rem;height:56px; }
+    .nav-name { display:none; }
+    .nav-links { gap:0; }
+    .nav-links a { padding:6px 8px;font-size:10px;letter-spacing:0.5px; }
+    .nav-status-label { display:none; }
+
+    /* Hero */
+    .hero { padding:2rem 1.25rem;grid-template-columns:1fr; }
+    .hero h1 { font-size:clamp(2.8rem,12vw,4rem); }
+    .hero-desc { max-width:100%;font-size:14px; }
+    .hero-actions { flex-direction:column;gap:10px; }
+    .hero-actions a { width:100%;justify-content:center; }
+    .hero-stats { flex-direction:row;padding-top:1.5rem;margin-top:1.5rem; }
+    .hud-item { padding:0.75rem 0.5rem; }
+    .stat-num { font-size:2rem; }
+
+    /* Sections */
+    .section { padding:2.5rem 1.25rem; }
+    .section h2 { font-size:1.8rem; }
+
+    /* About */
+    .about-grid { grid-template-columns:1fr;gap:2rem; }
+    .about-cards { order:2; }
+    .about-text { order:1; }
+
+    /* Skills */
+    .cyber-skill-card { padding:1.25rem; }
+    .csc-level { display:none; }
+
+    /* Timeline */
+    .timeline { padding-left:1rem; }
+    .timeline-item { padding-left:1.25rem; }
+    .timeline-dot { left:-1.65rem; }
+    .timeline-role { font-size:1.1rem; }
+
+    /* Projects grid */
+    .projects-grid { grid-template-columns:1fr; }
+
+    /* Contact */
+    .contact-layout { grid-template-columns:1fr;gap:2rem; }
+
+    /* Registry editor - hide tree panel on mobile */
+    .registry-tree { display:none !important; }
+    .registry-grid { grid-template-columns:1fr !important; }
+    .registry-values { grid-column:1/-1 !important; }
+
+    /* SQL table - hide on mobile, show message */
+    .sql-table-wrap { overflow-x:auto; }
+
+    /* Jira - stack columns */
+    .jira-grid { grid-template-columns:1fr !important; }
+
+    /* Footer */
+    footer { flex-direction:column;gap:4px;text-align:center;padding:1rem 1.25rem; }
+
+    /* Status bar — stack vertically on mobile */
+    .status-bar { flex-direction:column;gap:0.5rem;padding:0.75rem 1rem; }
+    .status-item { white-space:normal; }
+
+    /* Sports icons — hide on mobile to prevent overlap */
+    .sports-grid svg[style*="position:absolute"] { display:none !important; }
+
+    /* Human page */
+    .human-two-col { grid-template-columns:1fr !important; }
+
+    /* About why-cyber */
+    .why-cyber-grid { grid-template-columns:1fr !important; }
+    .travel-stats { grid-template-columns:1fr !important; }
+    .sports-grid { grid-template-columns:1fr !important; }
+
+    /* Home section containers */
+    .home-section-wrap { padding:0 1.25rem 3rem !important; }
+
+    /* Nav — with 9 tabs hide text on small screens */
+    .nav-status { display:none; }
+
+    /* Messages UI sidebar */
+    .msg-sidebar { display:none !important; }
+    .msg-thread-grid { grid-template-columns:1fr !important; }
+    .msg-thread-wrap { border-left:none !important; }
+
+    /* Nmap / PowerShell widget — scroll horizontally */
+    .nmap-grid { grid-template-columns:auto auto auto 1fr !important;overflow-x:auto; }
+    .ps-grid { grid-template-columns:auto auto 1fr !important;overflow-x:auto; }
+
+    /* Sports cards — stack to 1 col */
+    .sports-grid { grid-template-columns:1fr !important; }
+
+    /* Travel stats — 3 col stays ok on 768 but collapse at 480 */
+    .travel-stats { grid-template-columns:repeat(3,1fr) !important; }
+
+    /* Why cyber 3-col already handled */
+
+    /* Net browser cert grid — let auto-fit handle it */
+
+    /* Map container — reduce height on mobile */
+    #operator-map { height:300px !important; }
+    .map-wrap { height:320px !important; }
+
+    /* Splash name smaller on mobile */
+    #splash-name { font-size:clamp(1.6rem,8vw,3rem) !important; }
+
+    /* Hero sidebar 1fr 320px — already collapses at 1024px */
+
+    /* Home terminal + sidebar two col */
+    .home-two-col { grid-template-columns:1fr !important; }
+
+    /* Cert modal */
+    #cert-modal { padding:1rem !important; }
+  }
+
+@media (max-width:480px) {
+    .nav-links a { padding:6px 4px;font-size:8.5px;letter-spacing:0; }
+    .hero h1 { font-size:clamp(2.2rem,10vw,3rem); }
+    .hero-stats { gap:0; }
+    .stat-num { font-size:1.6rem;min-width:60px; }
+    .hud-pip { width:12px; }
+    .section h2 { font-size:1.5rem; }
+    .btn-primary,.btn-outline { font-size:12px;padding:10px 20px; }
+    .travel-stats { grid-template-columns:1fr !important; }
+    .hud-sub { font-size:8px; }
+    .why-cyber-grid { grid-template-columns:1fr !important; }
+    .travel-stats { grid-template-columns:1fr !important; }
+    .sports-grid { grid-template-columns:1fr !important; }
+    #operator-map { height:260px !important; }
+    .map-wrap { height:280px !important; }
+    /* Hide some nav text to prevent overflow */
+    .nav-links a[onclick*="experience"] { font-size:8px; }
+    .nav-links a[onclick*="projects"] { font-size:8px; }
+    .nav-links a[onclick*="roadmap"] { font-size:8px; }
+    .nav-links a[onclick*="contact"] { font-size:8px; }
+  }
+
+@media (max-width:900px) {
+        .capabilities-grid { grid-template-columns: repeat(2,1fr) !important; }
+      }
+
+@media (max-width:600px) {
+        .capabilities-grid { grid-template-columns: 1fr !important; }
+      }

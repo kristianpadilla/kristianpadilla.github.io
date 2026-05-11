@@ -1,0 +1,15 @@
+/* Design tokens */
+:root {
+    --mint: #6FECB8;
+    --mint-dim: #3db886;
+    --mint-glow: rgba(111,236,184,0.15);
+    --yellow: #F5E642;
+    --yellow-dim: rgba(245,230,66,0.12);
+    --dark-bg: #080808;
+    --dark-surface: #111111;
+    --dark-card: #161616;
+    --dark-border: #252525;
+    --text-primary: #eeeee4;
+    --text-secondary: #c8c8c0;
+    --text-muted: #9a9a90;
+  }
