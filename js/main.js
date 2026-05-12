@@ -305,16 +305,14 @@ document.getElementById('cert-modal').addEventListener('click', function(e){
     var splash = document.getElementById('splash');
     if(!splash) return;
 
-    // Cleaner exit: remove the old "JACKING IN" glitch/slice effect.
-    // Recruiters should move into the portfolio smoothly instead of waiting through
-    // another high-motion transition after the landing screen.
-    document.body.style.overflow = 'hidden';
-    document.body.style.touchAction = 'none';
+    // Clean exit: remove the aggressive "JACKING IN" glitch/slice transition.
+    // This keeps the portfolio feeling polished and recruiter-friendly after the landing screen.
     splash.classList.add('fade-out');
     cancelAnimationFrame(animId);
 
     setTimeout(function(){
       splash.style.display = 'none';
+      splash.remove();
       document.body.style.overflow = '';
       document.body.style.touchAction = '';
     }, 450);

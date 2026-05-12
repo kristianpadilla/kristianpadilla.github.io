@@ -114,9 +114,9 @@
   }
   #splash-name {
     font-family:'Orbitron',sans-serif;font-size:clamp(2rem,6vw,5rem);
-    font-weight:700;text-transform:uppercase;letter-spacing:1.4px;
+    font-weight:700;text-transform:uppercase;letter-spacing:2px;
     color:var(--mint);opacity:0;transition:opacity 0.6s ease;
-    text-shadow:0 0 16px rgba(111,236,184,0.28);
+    text-shadow:0 0 40px rgba(111,236,184,0.4);
     position:relative;display:inline-block;
   }
   /* splash-name glitch — JS driven, matches 09 logo */
@@ -142,7 +142,7 @@
     font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--mint);
     letter-spacing:2px;opacity:0;transition:opacity 0.3s ease 0.5s;
   }
-  #splash-enter button:hover { background:var(--mint-glow);box-shadow:0 0 12px rgba(111,236,184,0.16); }
+  #splash-enter button:hover { background:var(--mint-glow);box-shadow:0 0 14px rgba(111,236,184,0.16); }
   #splash.fade-out {
     opacity:0;transition:opacity 0.8s ease;pointer-events:none;
   }
@@ -182,10 +182,10 @@
   .holo-card:hover svg[style*="opacity:0.35"] { opacity:0.7 !important; }
   .holo-card:hover {
     box-shadow:
-      0 0 14px rgba(111,236,184,0.06),
-      0 0 28px rgba(91,196,245,0.035),
-      inset 0 0 14px rgba(111,236,184,0.025);
-    animation:holo-flicker 8s ease infinite;
+      0 0 20px rgba(111,236,184,0.08),
+      0 0 40px rgba(91,196,245,0.05),
+      inset 0 0 20px rgba(111,236,184,0.03);
+    animation:holo-flicker 4s ease infinite;
   }
   /* Holo scan line that sweeps on hover */
   .holo-card .holo-sweep {
@@ -218,58 +218,3 @@
     opacity:1;
     animation:holo-shift 2s ease infinite;
   }
-
-
-/* Readability polish pass: keep the cyberpunk feel, but reduce visual fatigue. */
-.terminal,
-.project-desc,
-.about-text p,
-.timeline-bullets li,
-.contact-info p {
-  text-shadow: none;
-}
-
-.project-card,
-.skill-group,
-.cyber-skill-card,
-.cyber-cert-card,
-.about-card {
-  box-shadow: none;
-}
-
-.project-card:hover,
-.skill-group:hover,
-.cyber-skill-card:hover,
-.cyber-cert-card:hover {
-  box-shadow: 0 12px 26px rgba(111,236,184,0.065);
-}
-
-#lab-modal,
-#cert-modal {
-  backdrop-filter: blur(2px);
-}
-
-#lab-modal [style*="letter-spacing:2px"],
-#lab-modal [style*="letter-spacing:3px"],
-#cert-modal [style*="letter-spacing:2px"],
-#cert-modal [style*="letter-spacing:3px"] {
-  letter-spacing: 1.1px !important;
-}
-
-#lab-modal [style*="text-shadow"] {
-  text-shadow: 0 0 8px rgba(111,236,184,0.18) !important;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-scanline,
-  .glitch-wrap,
-  .section h2,
-  .section h2::before,
-  .section h2::after,
-  .holo-card:hover,
-  .holo-card:hover::before,
-  .holo-card:hover::after,
-  .holo-card:hover .holo-sweep {
-    animation: none !important;
-  }
-}

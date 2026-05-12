@@ -32,17 +32,17 @@
   }
 
 @keyframes corrupt-base {
-    0%,60%,100% { transform:translate(0) skewX(0); filter:none; }
-    61% { transform:translate(3px,0) skewX(-1deg); filter:brightness(1.3); }
+    0%,78%,100% { transform:translate(0) skewX(0); filter:none; }
+    61% { transform:translate(3px,0) skewX(-1deg); filter:brightness(1.12); }
     62% { transform:translate(-2px,0) skewX(0.5deg); filter:none; }
     63% { transform:translate(0) skewX(0); }
     80% { transform:translate(0) skewX(0); filter:none; }
-    81% { transform:translate(-4px,1px) skewX(-2deg); filter:brightness(1.5) hue-rotate(20deg); }
+    81% { transform:translate(-4px,1px) skewX(-2deg); filter:brightness(1.15) hue-rotate(20deg); }
     82% { transform:translate(3px,-1px) skewX(1deg); filter:none; }
     83% { transform:translate(-2px,0) skewX(-0.5deg); }
     84% { transform:translate(0) skewX(0); filter:none; }
     93% { transform:translate(0) skewX(0); filter:none; }
-    94% { transform:translate(5px,0) skewX(-3deg); filter:brightness(2); }
+    94% { transform:translate(5px,0) skewX(-3deg); filter:brightness(1.25); }
     94.5% { transform:translate(-4px,1px) skewX(2deg); filter:hue-rotate(30deg); }
     95% { transform:translate(0) skewX(0); filter:none; }
   }
@@ -52,10 +52,10 @@
 @keyframes status-pulse { 0%,100%{ box-shadow:0 0 0 0 rgba(111,236,184,0.5); } 50%{ box-shadow:0 0 0 4px rgba(111,236,184,0); } }
 
 @keyframes scanline-move {
-    0%   { transform:translateY(0px); opacity:0; }
-    8%   { opacity:0.28; }
-    88%  { opacity:0.18; }
-    100% { transform:translateY(100vh); opacity:0; }
+    0%   { transform:translateY(-8vh); opacity:0; }
+    8%   { opacity:0.22; }
+    92%  { opacity:0.16; }
+    100% { transform:translateY(108vh); opacity:0; }
   }
 
 @keyframes threat-pulse {
@@ -79,9 +79,9 @@
 @keyframes holo-flicker {
     0%,100% { opacity:1; }
     92%     { opacity:1; }
-    93%     { opacity:0.94; }
+    93%     { opacity:0.85; }
     94%     { opacity:1; }
-    96%     { opacity:0.96; }
+    96%     { opacity:0.9; }
     97%     { opacity:1; }
   }
 
