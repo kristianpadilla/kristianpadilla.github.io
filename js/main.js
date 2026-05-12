@@ -305,87 +305,19 @@ document.getElementById('cert-modal').addEventListener('click', function(e){
     var splash = document.getElementById('splash');
     if(!splash) return;
 
-    var totalMs = 1100;
-    var numSlices = 15;
-    // scale shift down on narrow screens so slices don't fly off screen
-    var isMobile = window.innerWidth < 600;
-    var maxShift = isMobile ? 18 : 42;
-    var h = document.documentElement.clientHeight || window.innerHeight;
-    var w = document.documentElement.clientWidth || window.innerWidth;
-
-    // "JACKING IN" text — responsive font, letter spacing tighter on mobile
-    var jackText = document.createElement('div');
-    jackText.style.cssText='position:fixed;inset:0;z-index:100001;display:flex;align-items:center;justify-content:center;pointer-events:none;opacity:0;transition:opacity 0.35s ease;';
-    var fontSize = isMobile ? '0.85rem' : 'clamp(1rem,3vw,1.6rem)';
-    var letterSpacing = isMobile ? '3px' : '6px';
-    jackText.innerHTML='<span style="font-family:\'Orbitron\',monospace;font-size:'+fontSize+';font-weight:700;color:#6FECB8;letter-spacing:'+letterSpacing+';text-transform:uppercase;text-shadow:0 0 20px rgba(111,236,184,0.8);">// JACKING IN...</span>';
-    document.body.appendChild(jackText);
-
-    // prevent scroll/touch during transition
+    // Cleaner exit: remove the old "JACKING IN" glitch/slice effect.
+    // Recruiters should move into the portfolio smoothly instead of waiting through
+    // another high-motion transition after the landing screen.
     document.body.style.overflow = 'hidden';
     document.body.style.touchAction = 'none';
-
-    setTimeout(function(){ jackText.style.opacity = '1'; }, 30);
-
-    var sliceH = Math.ceil(h / numSlices);
-    var slices = [];
-    for(var i=0; i<numSlices; i++){
-      var wrap = document.createElement('div');
-      wrap.style.cssText='position:fixed;left:0;width:100%;overflow:hidden;z-index:100000;pointer-events:none;will-change:transform;';
-      wrap.style.top=(i*sliceH)+'px';
-      wrap.style.height=(sliceH+1)+'px'; // +1 to avoid sub-pixel gaps
-      wrap.style.background='#080808';
-      document.body.appendChild(wrap);
-      slices.push({
-        wrap:wrap,
-        baseShift:(Math.random()-0.5)*maxShift*2,
-        phase:Math.random()*Math.PI*2
-      });
-    }
-
-    splash.style.display='none';
+    splash.classList.add('fade-out');
     cancelAnimationFrame(animId);
 
-    var start=null;
-
-    function frame(ts){
-      if(!start) start=ts;
-      var p=Math.min((ts-start)/totalMs,1);
-      var ep=Math.sin(p*Math.PI);
-
-      slices.forEach(function(s,i){
-        var jitter=(Math.random()-0.5)*maxShift*0.3;
-        var shift=s.baseShift*ep+jitter*ep;
-        var visible=Math.random()>(0.07*ep);
-        s.wrap.style.opacity=visible?'1':'0';
-        s.wrap.style.transform='translateX('+shift+'px)';
-        if(i%4===0){
-          s.wrap.style.background='rgba(111,236,184,0.05)';
-          s.wrap.style.filter=Math.random()>0.5?'brightness(1.4)':'brightness(0.7)';
-        } else {
-          s.wrap.style.background='#080808';
-          s.wrap.style.filter='';
-        }
-      });
-
-      if(p >= 0.7){
-        var fadeOut=(p-0.7)/0.3;
-        jackText.style.transition='opacity 0.4s ease';
-        jackText.style.opacity=(1-fadeOut).toString();
-      }
-
-      if(p<1){
-        requestAnimationFrame(frame);
-      } else {
-        slices.forEach(function(s){ s.wrap.remove(); });
-        jackText.remove();
-        // restore scroll after transition
-        document.body.style.overflow='';
-        document.body.style.touchAction='';
-      }
-    }
-
-    requestAnimationFrame(frame);
+    setTimeout(function(){
+      splash.style.display = 'none';
+      document.body.style.overflow = '';
+      document.body.style.touchAction = '';
+    }, 450);
   }
 
   // After 1.5s reveal name/title, then run the loading bar, then show click prompt
