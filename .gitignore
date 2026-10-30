@@ -1,0 +1,57 @@
+# ===== OS artifacts =====
+.DS_Store
+Thumbs.db
+desktop.ini
+ehthumbs.db
+$RECYCLE.BIN/
+
+# ===== Editor / IDE =====
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.sublime-project
+*.sublime-workspace
+
+# ===== Secrets & credentials (never commit these) =====
+.env
+.env.*
+*.env
+secrets.json
+credentials.json
+config.local.*
+*.key
+*.pem
+*.p12
+*.pfx
+id_rsa
+id_rsa.pub
+.aws/
+.ssh/
+
+# ===== Dependencies & build artifacts =====
+node_modules/
+bower_components/
+dist/
+build/
+out/
+.cache/
+.parcel-cache/
+
+# ===== Logs =====
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ===== Local scratch / temp =====
+tmp/
+temp/
+scratch/
+notes.md
+TODO.local.md
+*.bak
+*.orig
+*.rej

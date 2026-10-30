@@ -1,0 +1,12 @@
+# robots.txt for kristianpadilla.github.io
+# Site content is crawlable so recruiters and search engines can find the portfolio.
+# Resume PDF is excluded from indexing so personal contact info (phone, address)
+# doesn't end up in public search results. Direct URL still works for anyone
+# who clicks the "Download Resume" button on the site.
+
+User-agent: *
+Allow: /
+Disallow: /KRISTIAN_PADILLA_Resume.pdf
+
+# Tell well-behaved crawlers not to cache the resume either.
+Noindex: /KRISTIAN_PADILLA_Resume.pdf
