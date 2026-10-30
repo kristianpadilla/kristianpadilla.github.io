@@ -38,10 +38,10 @@
         // Store map reference on element for later access
         document.getElementById('operator-map')._leaflet_map = map;
 
-        // Dark tile layer — CartoDB Dark Matter
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+        // Tile layer — OpenStreetMap (free, no API key); CSS filter below inverts to dark/cyber look
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
           maxZoom: 19,
-          subdomains: 'abcd'
+          subdomains: 'abc'
         }).addTo(map);
 
         // Custom icon factory
@@ -123,9 +123,9 @@
         addMarker(39.9626, -76.7277, makeIcon('#ff2d6b','star',16),
           popup('⚠ WAYPOINT','Destination Unknown','Meet Hanako at Embers.<br>// still working on it.','#ff2d6b', true));
 
-        // Add Leaflet CSS override for dark popups
+        // Add Leaflet CSS override for dark popups + invert OSM tiles to dark cyber look
         var style = document.createElement('style');
-        style.textContent = '.cyber-popup .leaflet-popup-content-wrapper{background:transparent!important;border:none!important;box-shadow:none!important;padding:0!important}.cyber-popup .leaflet-popup-content{margin:0!important}.cyber-popup .leaflet-popup-tip-container{display:none!important}';
+        style.textContent = '.cyber-popup .leaflet-popup-content-wrapper{background:transparent!important;border:none!important;box-shadow:none!important;padding:0!important}.cyber-popup .leaflet-popup-content{margin:0!important}.cyber-popup .leaflet-popup-tip-container{display:none!important}.leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(0.9) contrast(0.95) saturate(0.8);}';
         document.head.appendChild(style);
       }
 
