@@ -111,9 +111,13 @@
         addMarker(40.1523, -76.6024, makeIcon('#6FECB8','triangle',12),
           popup('OP: AMAZON','Elizabethtown, PA','Distribution Associate · Aug 2019 – Sep 2021<br>WMS, 1,000+ packages/shift.'));
 
-        // Foot Locker — Camp Hill
-        addMarker(40.2400, -76.9219, makeIcon('#F5E642','diamond',16),
-          popup('LAST OP: FOOT LOCKER','Camp Hill, PA · Remote','IT Deployment Analyst · Apr 2025 – Mar 2026<br>1,000+ locations · 3 continents · 2,000+ devices.','#F5E642'));
+        // Penn State Health — Hershey (CURRENT)
+        addMarker(40.2680, -76.6760, makeIcon('#F5E642','diamond',16),
+          popup('CURRENT OP: PENN STATE HEALTH','Hershey, PA','Epic Deployment Technician &middot; Mar 2026 – Present<br>Cerner&rarr;Epic transition &middot; 15,000+ workstations.','#F5E642'));
+
+        // Foot Locker — Camp Hill (prior IT role)
+        addMarker(40.2400, -76.9219, makeIcon('#6FECB8','triangle',12),
+          popup('PRIOR OP: FOOT LOCKER','Camp Hill, PA &middot; Remote','IT Deployment Analyst &middot; Apr 2025 – Feb 2026<br>POS v19&rarr;v23 &middot; 1,000+ locations &middot; 3 continents.'));
 
 
 
